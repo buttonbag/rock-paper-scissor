@@ -19,6 +19,26 @@
 				let compPick = choices[randNum];
 				return compPick;
 			}
+
+			const playerSelection = 'rock';
+			const computerSelection = computerPlay();
+			console.log('computer picks: ' + computerSelection);
+			console.log('player picks: ' + playerSelection);
+
+			// play a round with playerSelection vs computerSelection
+			function round(playerSelection, computerSelection) {
+				// check for winner, playerSelection vs computerSelection
+				if (playerSelection == 'rock' && computerSelection == 'scissor') {
+					// return message string
+					console.log(
+						'You win! ' + playerSelection + ' beats ' + computerSelection
+					);
+				} else {
+					console.log('shrug');
+				}
+			}
+
+			round(playerSelection, computerSelection);
 		</script>
 	</body>
 </html>
