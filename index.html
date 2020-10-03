@@ -7,6 +7,9 @@
 	</head>
 	<body>
 		<script>
+			const playerSelection = 'rock';
+			const computerSelection = computerPlay();
+
 			function computerPlay() {
 				// set array of rock, paper, scissor
 				const choices = ['rock', 'paper', 'scissor'];
@@ -20,25 +23,30 @@
 				return compPick;
 			}
 
-			const playerSelection = 'rock';
-			const computerSelection = computerPlay();
-			console.log('computer picks: ' + computerSelection);
-			console.log('player picks: ' + playerSelection);
-
 			// play a round with playerSelection vs computerSelection
 			function round(playerSelection, computerSelection) {
 				// check for winner, playerSelection vs computerSelection
-				if (playerSelection == 'rock' && computerSelection == 'scissor') {
+				if (playerSelection === 'rock' && computerSelection === 'rock') {
 					// return message string
-					console.log(
-						'You win! ' + playerSelection + ' beats ' + computerSelection
-					);
+					return `Tied. ${playerSelection} with ${computerSelection}`;
+				} else if (
+					playerSelection === 'rock' &&
+					computerSelection === 'paper'
+				) {
+					// return message string
+					return `You lose! ${computerSelection} beats ${playerSelection}`;
+				} else if (
+					playerSelection === 'rock' &&
+					computerSelection === 'scissor'
+				) {
+					// return message string
+					return `You win! ${playerSelection} beats ${computerSelection}`;
 				} else {
-					console.log('shrug');
+					return 'shrug';
 				}
 			}
 
-			round(playerSelection, computerSelection);
+			console.log(round(playerSelection, computerSelection));
 		</script>
 	</body>
 </html>
