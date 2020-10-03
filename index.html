@@ -1,1 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			function computerPlay() {
+				// set array of rock, paper, scissor
+				const choices = ['rock', 'paper', 'scissor'];
 
+				// assign random number variable
+				// randomly select rock, paper, scissor
+				const randNum = Math.floor(Math.random() * 3);
+
+				//assign selection to a variable
+				let compPick = choices[randNum];
+				return compPick;
+			}
+		</script>
+	</body>
+</html>
