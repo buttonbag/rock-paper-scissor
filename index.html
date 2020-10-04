@@ -26,23 +26,49 @@
 			// play a round with playerSelection vs computerSelection
 			function round(playerSelection, computerSelection) {
 				// check for winner, playerSelection vs computerSelection
-				if (playerSelection === 'rock' && computerSelection === 'rock') {
-					// return message string
-					return `Tied. ${playerSelection} with ${computerSelection}`;
-				} else if (
-					playerSelection === 'rock' &&
-					computerSelection === 'paper'
-				) {
-					// return message string
-					return `You lose! ${computerSelection} beats ${playerSelection}`;
-				} else if (
-					playerSelection === 'rock' &&
-					computerSelection === 'scissor'
-				) {
-					// return message string
-					return `You win! ${playerSelection} beats ${computerSelection}`;
-				} else {
-					return 'shrug';
+
+				// rock > scissor
+				// scissor > paper
+				// paper > rock
+
+				// if computer chooses rock
+				if (computerSelection === 'rock') {
+					if (playerSelection === 'rock') {
+						// return message string
+						return `Tied. ${playerSelection} with ${computerSelection}`;
+					} else if (playerSelection === 'paper') {
+						// return message string
+						return `You win! ${playerSelection} beats ${computerSelection}`;
+					} else if (playerSelection === 'scissor') {
+						// return message string
+						return `You lose! ${computerSelection} beats ${playerSelection}`;
+					}
+				}
+				// if computer chooses paper
+				else if (computerSelection === 'paper') {
+					if (playerSelection === 'rock') {
+						// return message string
+						return `You lose! ${computerSelection} beats ${playerSelection}`;
+					} else if (playerSelection === 'paper') {
+						// return message string
+						return `Tied. ${playerSelection} with ${computerSelection}`;
+					} else if (playerSelection === 'scissor') {
+						// return message string
+						return `You win! ${playerSelection} beats ${computerSelection}`;
+					}
+				}
+				// if computer chooses scissor
+				else if (computerSelection === 'scissor') {
+					if (playerSelection === 'rock') {
+						// return message string
+						return `You win! ${playerSelection} beats ${computerSelection}`;
+					} else if (playerSelection === 'paper') {
+						// return message string
+						return `You lose! ${computerSelection} beats ${playerSelection}`;
+					} else if (playerSelection === 'scissor') {
+						// return message string
+						return `Tied. ${playerSelection} with ${computerSelection}`;
+					}
 				}
 			}
 
