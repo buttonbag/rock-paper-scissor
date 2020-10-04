@@ -7,11 +7,6 @@
 	</head>
 	<body>
 		<script>
-			const playerSelection = prompt(
-				'Choose rock, paper or scissor'
-			).toLowerCase();
-			const computerSelection = computerPlay();
-
 			function computerPlay() {
 				// set array of rock, paper, scissor
 				const choices = ['rock', 'paper', 'scissor'];
@@ -40,9 +35,11 @@
 						return `Tied. ${playerSelection} with ${computerSelection}`;
 					} else if (playerSelection === 'paper') {
 						// return message string
+						++playerScore;
 						return `You win! ${playerSelection} beats ${computerSelection}`;
 					} else if (playerSelection === 'scissor') {
 						// return message string
+						++computerScore;
 						return `You lose! ${computerSelection} beats ${playerSelection}`;
 					}
 				}
@@ -50,12 +47,14 @@
 				else if (computerSelection === 'paper') {
 					if (playerSelection === 'rock') {
 						// return message string
+						++computerScore;
 						return `You lose! ${computerSelection} beats ${playerSelection}`;
 					} else if (playerSelection === 'paper') {
 						// return message string
 						return `Tied. ${playerSelection} with ${computerSelection}`;
 					} else if (playerSelection === 'scissor') {
 						// return message string
+						++playerScore;
 						return `You win! ${playerSelection} beats ${computerSelection}`;
 					}
 				}
@@ -63,9 +62,11 @@
 				else if (computerSelection === 'scissor') {
 					if (playerSelection === 'rock') {
 						// return message string
+						++playerScore;
 						return `You win! ${playerSelection} beats ${computerSelection}`;
 					} else if (playerSelection === 'paper') {
 						// return message string
+						++computerScore;
 						return `You lose! ${computerSelection} beats ${playerSelection}`;
 					} else if (playerSelection === 'scissor') {
 						// return message string
@@ -74,7 +75,30 @@
 				}
 			}
 
-			console.log(round(playerSelection, computerSelection));
+			// keep score
+			var playerScore = 0;
+			var computerScore = 0;
+
+			function game() {
+				//play a 5 round game
+				for (let i = 0; i < 5; i++) {
+					// players make a choice each time
+					const playerSelection = prompt(
+						'Choose rock, paper or scissor'
+					).toLowerCase();
+					const computerSelection = computerPlay();
+
+					console.log(round(playerSelection, computerSelection));
+					console.log(playerScore);
+				}
+				// report a winner or loser at the end.
+				if (playerScore > computerScore) {
+					console.log(`You win, ${playerScore} to ${computerScore}`);
+				} else if (playerScore < computerScore) {
+					console.log(`You lose, ${computerScore} to ${playerScore}`);
+				}
+			}
+			game();
 		</script>
 	</body>
 </html>
