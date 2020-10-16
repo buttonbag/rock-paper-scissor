@@ -3,6 +3,7 @@ const instructions = document.querySelector(
 	'.instructions'
 );
 const message = document.querySelector('.message');
+const endMessage = document.querySelector('.end-message');
 const rounds = document.querySelector('.rounds');
 const userScore = document.querySelector('.player-score');
 const compScore = document.querySelector('.computer-score');
@@ -77,28 +78,38 @@ function round(playerSelection, computerSelection) {
 // keep score
 var playerScore = 0;
 var computerScore = 0;
+const roundsAmt = document.querySelector('#roundsAmt');
 
 function game(choice) {
 	// players make a choice each time
-	// const playerSelection = prompt(
-	// 	'Choose rock, paper or scissor'
-	// ).toLowerCase();
 	const computerSelection = computerPlay();
 	message.innerText = round(choice, computerSelection);
 	userScore.innerText = `${playerScore}`;
 	compScore.innerText = `${computerScore}`;
-	// report a winner or loser at the end.
-	if (playerScore > computerScore) {
-		message.innerText += `You win, ${playerScore} to ${computerScore}`;
-	} else if (playerScore < computerScore) {
-		message.innerText += `You lose, ${computerScore} to ${playerScore}`;
+	// check if max points are reached
+	if (
+		playerScore + computerScore ===
+		parseInt(roundsAmt.value)
+	) {
+		// report a winner or loser at the end.
+		endMessage.classList.remove('hide');
+		if (playerScore > computerScore) {
+			endMessage.innerText += `You win, ${playerScore} to ${computerScore}`;
+		} else if (playerScore < computerScore) {
+			endMessage.innerText += `You lose, ${computerScore} to ${playerScore}`;
+		}
 	}
 }
 
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((btn) => {
+	// disable buttons until amount of rounds is chosen
 	btn.addEventListener('click', function () {
 		game(this.name);
 	});
 });
+
+// deactivate buttons after round end is reached
+// fix message wording
+// add reset button

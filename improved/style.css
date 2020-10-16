@@ -3,29 +3,73 @@
 	box-sizing: border-box;
 }
 
+.container {
+	display: flex;
+	flex-direction: column;
+	max-width: 80rem;
+	margin: 0 auto;
+}
 .header {
+	font-size: 14rem;
+}
+.message,
+.end-message {
+	font-size: 5rem;
+	text-align: center;
+}
+.end-message {
+	background: #ffeb3b;
+	box-shadow: 0px 4px 12px 0px black;
+	padding: 4rem;
+	transform: rotate(-15deg);
+	top: 0;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 40rem;
+	height: 6rem;
+	position: absolute;
+	border-radius: 6px;
+}
+section {
+	display: flex;
+	justify-content: space-around;
+}
+.messages {
+	display: flex;
+	flex-direction: column;
+}
+.end-message {
+}
+#roundsAmt {
 	font-size: 4rem;
 }
-.instructions {
+.score-container {
 	font-size: 2rem;
-}
-.numbers {
-	display: flex;
-	font-size: 2rem;
-}
-.rounds,
-.score {
-	font-size: 3rem;
 	font-weight: 700;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.buttons {
+.computer-score,
+.player-score {
+	font-size: 4rem;
+}
+button {
+	width: 100%;
+	height: 10rem;
+	font-size: 2rem;
+	margin: 0 1rem;
 }
 .rock {
 }
 .paper {
 }
 .scissor {
+}
+
+/* utility */
+.hide {
+	visibility: hidden;
 }

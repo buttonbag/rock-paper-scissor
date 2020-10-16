@@ -6,30 +6,43 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Rock, Paper≤ Scissor</title>
+		<title>Rock, Paper, Scissor</title>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<section>
-			<p class="message"></p>
-		</section>
-		<section>
-			<div class="score-container">
-				<h2>Computer Score:</h2>
-				<div class="computer-score">0</div>
-			</div>
-			<div class="score-container">
-				<h2>Your Score:</h2>
-				<div class="player-score">0</div>
-			</div>
-		</section>
-		<section>
-			<button class="rockBtn" name="rock">ROCK</button>
-			<button class="paperBtn" name="paper">PAPER</button>
-			<button class="scissorBtn" name="scissor">
-				SCISSOR
-			</button>
-		</section>
+		<div class="container">
+			<section>
+				<div class="messages">
+					<p class="message">
+						Rock, Paper, Scissor. Best of
+						<select name="roundsAmt" id="roundsAmt">
+							<option value="none" selected>&infin;</option>
+							<option value="3">3</option>
+							<option value="5">5</option>
+							<option value="7">7</option>
+						</select>
+					</p>
+					<p class="end-message hide"></p>
+				</div>
+			</section>
+			<section>
+				<div class="score-container">
+					<h2>Computer Score:</h2>
+					<p class="computer-score">0</p>
+				</div>
+				<div class="score-container">
+					<h2>Your Score:</h2>
+					<p class="player-score">0</p>
+				</div>
+			</section>
+			<section>
+				<button class="rockBtn" name="rock">ROCK</button>
+				<button class="paperBtn" name="paper">PAPER</button>
+				<button class="scissorBtn" name="scissor">
+					SCISSOR
+				</button>
+			</section>
+		</div>
 
 		<script src="app.js"></script>
 	</body>
